@@ -40,7 +40,7 @@ void app_main(void)
 
 	while (1)
 	{
-        delay_ms(2000);
+        delay_ms(1000);
         GPIOC->ODR ^= (1 << 13);
 	}
 }
