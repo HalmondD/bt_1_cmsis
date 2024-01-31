@@ -3,23 +3,20 @@
 
 volatile uint32_t ms_ticks = 0;
 
-void HAL_SYSTICK_Callback(void)
-{
-	//ms_ticks++;
-	//GPIOC->ODR ^= (1 << 13);
-}
+/*
+*The SysTick_Handler is written to stm32f1xx_it.c
+*with the extern to ms_ticks
+*/
 
 void delay_ms(uint32_t delay_time_ms)
 {
 	uint32_t expected_ticks = ms_ticks + delay_time_ms;
-
-    /*
+    
     if (expected_ticks >= UINT32_T_MAX)
     {
         ms_ticks = 0;
         expected_ticks = delay_time_ms;
     }
-    */
 
 	while (ms_ticks < expected_ticks)
 	{
